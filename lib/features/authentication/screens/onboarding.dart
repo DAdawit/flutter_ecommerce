@@ -1,19 +1,27 @@
+import 'package:e_commerce/features/authentication/controllers.onboarding/onboarding_controller.dart';
+import 'package:e_commerce/features/authentication/screens/widgets/onboarding_Next_button.dart';
+import 'package:e_commerce/features/authentication/screens/widgets/onboarding_dot_navigation.dart';
+import 'package:e_commerce/features/authentication/screens/widgets/onboarding_page.dart';
+import 'package:e_commerce/features/authentication/screens/widgets/onboarding_skip.dart';
 import 'package:e_commerce/utils/constants/image_strings.dart';
-import 'package:e_commerce/utils/constants/sizes.dart';
 import 'package:e_commerce/utils/constants/text_strings.dart';
-import 'package:e_commerce/utils/helpers/helper_functions.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class OnBoardingScreen extends StatelessWidget {
   const OnBoardingScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final controller = Get.put(OnBoardingController());
+
     return Scaffold(
       body: Stack(
         children: [
           //   Horizontal Scroll page
           PageView(
+            controller: controller.pageController,
+            onPageChanged: controller.updatePageIndicator,
             children: const [
               OnBoardingPage(
                 image: TImages.onBoardingImage1,
@@ -31,45 +39,16 @@ class OnBoardingScreen extends StatelessWidget {
                 subTitle: TTexts.onBoardingSubTitle3,
               )
             ],
-          )
-        ],
-      ),
-    );
-  }
-}
-
-class OnBoardingPage extends StatelessWidget {
-  const OnBoardingPage({
-    required this.image,
-    required this.title,
-    required this.subTitle,
-    super.key,
-  });
-
-  final String image, title, subTitle;
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(TSizes.defaultSpace),
-      child: Column(
-        children: [
-          Image(
-              width: THelperFunctions.screenWidth() * 0.8,
-              height: THelperFunctions.screenHeight() * 0.6,
-              image: AssetImage(image)),
-          Text(
-            title,
-            style: Theme.of(context).textTheme.headlineMedium,
-            textAlign: TextAlign.center,
           ),
-          const SizedBox(
-            height: TSizes.spaceBtwItems,
-          ),
-          Text(
-            subTitle,
-            style: Theme.of(context).textTheme.bodyMedium,
-            textAlign: TextAlign.center,
-          )
+
+          // Skip button
+          const OnBoardingSkip(),
+
+          // Dot Navigation SmoothPageIndicator
+          const OnBoardingDotNavigation(),
+
+          // Circular Button
+          const OnBoardingNextButton()
         ],
       ),
     );
