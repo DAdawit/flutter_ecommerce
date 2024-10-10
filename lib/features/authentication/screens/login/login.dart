@@ -130,8 +130,38 @@ class Login extends StatelessWidget {
                     ),
                   )
                 ],
-              )
+              ),
               // footer
+              const SizedBox(height: TSizes.spaceBtwItems),
+
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Container(
+                    decoration: BoxDecoration(
+                        border: Border.all(color: TColors.grey),
+                        borderRadius: BorderRadius.circular(100)),
+                    child: IconButton(
+                        onPressed: () {},
+                        icon: const Image(
+                            width: TSizes.iconMd,
+                            height: TSizes.iconMd,
+                            image: AssetImage(TImages.google))),
+                  ),
+                  const SizedBox(width: TSizes.spaceBtwItems),
+                  Container(
+                    decoration: BoxDecoration(
+                        border: Border.all(color: TColors.grey),
+                        borderRadius: BorderRadius.circular(100)),
+                    child: IconButton(
+                        onPressed: () {},
+                        icon: const Image(
+                            width: TSizes.iconMd,
+                            height: TSizes.iconMd,
+                            image: AssetImage(TImages.facebook))),
+                  ),
+                ],
+              ),
             ],
           ),
         ),
