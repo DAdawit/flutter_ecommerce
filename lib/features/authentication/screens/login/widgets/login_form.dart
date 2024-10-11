@@ -1,4 +1,4 @@
-import 'package:e_commerce/features/authentication/Navigation/bottom_navigation_menu.dart';
+import 'package:e_commerce/common/widgets/Navigation/bottom_navigation_menu.dart';
 import 'package:e_commerce/features/authentication/screens/forgetPassword/forget_password.dart';
 import 'package:e_commerce/features/authentication/screens/signup/signup.dart';
 import 'package:e_commerce/utils/constants/sizes.dart';

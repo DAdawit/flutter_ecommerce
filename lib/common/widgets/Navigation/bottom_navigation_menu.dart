@@ -1,3 +1,6 @@
+import 'package:e_commerce/features/shope/screens/home/home.dart';
+import 'package:e_commerce/utils/constants/colors.dart';
+import 'package:e_commerce/utils/helpers/helper_functions.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
@@ -8,12 +11,15 @@ class BottomNavigationMenu extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final controller = Get.put(NavigationController());
+    final darkMode = THelperFunctions.isDarkMode(context);
     return Scaffold(
       bottomNavigationBar: Obx(
         () => NavigationBar(
             height: 60,
             elevation: 0,
             selectedIndex: controller.selectedIndex.value,
+            backgroundColor: darkMode ? TColors.black : Colors.white,
+            indicatorColor: darkMode ? TColors.white.withOpacity(0.1): Colors.black.withOpacity(0.1),
             onDestinationSelected: (index) =>
                 controller.selectedIndex.value = index,
             destinations: const [
@@ -32,7 +38,7 @@ class BottomNavigationMenu extends StatelessWidget {
 class NavigationController extends GetxController {
   final Rx<int> selectedIndex = 0.obs;
   final screens = [
-    const Center(child: Text("Home")),
+    const HomeScreen(),
     const Center(child: Text("Store")),
     const Center(child: Text("Wishlist")),
     const Center(child: Text("Profile")),
