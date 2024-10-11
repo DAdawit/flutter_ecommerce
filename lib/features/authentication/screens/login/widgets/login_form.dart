@@ -1,3 +1,4 @@
+import 'package:e_commerce/features/authentication/screens/forgetPassword/forget_password.dart';
 import 'package:e_commerce/features/authentication/screens/signup/signup.dart';
 import 'package:e_commerce/utils/constants/sizes.dart';
 import 'package:flutter/material.dart';
@@ -35,6 +36,7 @@ class LoginForm extends StatelessWidget {
             height: TSizes.sm,
           ),
           Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Row(
                 children: [
@@ -44,7 +46,7 @@ class LoginForm extends StatelessWidget {
               ),
               // Forget password
               TextButton(
-                  onPressed: () {}, child: const Text(TTexts.forgetPassword))
+                  onPressed: () => Get.to(()=> const ForgetPasswordScreen()), child: const Text(TTexts.forgetPassword))
             ],
           ),
           const SizedBox(

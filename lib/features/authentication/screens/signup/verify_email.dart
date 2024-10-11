@@ -33,35 +33,34 @@ class VerifyEmail extends StatelessWidget {
                 child: Image(
                     width: THelperFunctions.screenWidth() * 0.8,
                     height: THelperFunctions.screenHeight() * 0.3,
-                    image: const AssetImage(
-                        TImages.deliveredEmailIllustration)),
+                    image:
+                        const AssetImage(TImages.deliveredEmailIllustration)),
               ),
-              Text(TTexts.confirmEmail, style: Theme
-                  .of(context)
-                  .textTheme
-                  .headlineMedium, textAlign: TextAlign.center),
+              Text(TTexts.confirmEmail,
+                  style: Theme.of(context).textTheme.headlineMedium,
+                  textAlign: TextAlign.center),
               const SizedBox(height: TSizes.spaceBtwItems),
-              Text("support@da.com", style: Theme
-                  .of(context)
-                  .textTheme
-                  .labelLarge, textAlign: TextAlign.center),
+              Text("support@da.com",
+                  style: Theme.of(context).textTheme.labelLarge,
+                  textAlign: TextAlign.center),
               const SizedBox(height: TSizes.spaceBtwItems),
-              Text(TTexts.confirmEmailSubTitle, style: Theme
-                  .of(context)
-                  .textTheme
-                  .labelMedium, textAlign: TextAlign.center),
+              Text(TTexts.confirmEmailSubTitle,
+                  style: Theme.of(context).textTheme.labelMedium,
+                  textAlign: TextAlign.center),
               const SizedBox(height: TSizes.spaceBtwSections),
-              SizedBox(width: double.infinity,
-                  child: ElevatedButton(onPressed: () =>
-                      Get.to(() =>
-                      SuccessScreen(
-                        image: TImages.deliveredEmailIllustration,
-                        title: TTexts.yourAccountCreatedTitle,
-                        subTitle:TTexts.yourAccountCreatedSubTitle,
-                        onPressed: ()=> Get.to(()=> const LoginScreen()),
-                        )), child: const Text(TTexts.tContinue))),
+              SizedBox(
+                  width: double.infinity,
+                  child: ElevatedButton(
+                      onPressed: () => Get.to(() => SuccessScreen(
+                            image: TImages.deliveredEmailIllustration,
+                            title: TTexts.yourAccountCreatedTitle,
+                            subTitle: TTexts.yourAccountCreatedSubTitle,
+                            onPressed: () => Get.to(() => const LoginScreen()),
+                          )),
+                      child: const Text(TTexts.tContinue))),
               const SizedBox(height: TSizes.spaceBtwItems),
-              SizedBox(width: double.infinity,
+              SizedBox(
+                  width: double.infinity,
                   child: TextButton(
                       onPressed: () {}, child: const Text(TTexts.resendEmail))),
 
